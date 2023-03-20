@@ -102,7 +102,7 @@ the control file should be created and stat-ed
 #define DEFAULT_FROM_MAIL "craafdd"
 #define MAX_MAILCMDTO_LEN 128
 
-#define MAX_LOGBUF_LEN 1000
+#define MAX_LOGBUF_LEN 5000 // 1000
 #define MAX_MAIL_BUF 130000 // 2000
 
 typedef struct _nodestats
