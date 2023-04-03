@@ -184,13 +184,14 @@ static inline const char * gettime(time_t * aux_time)
 	return buftime;
 }
 
-static void sendmail(const char * my_hostname, const char * from_mail, const char * mail_cmd, const char * message)
+static void sendmail(const char * my_hostname, const char * from_mail, const char * to_mail, const char * mail_cmd, const char * message)
 {
 	FILE * pp;
 	static char buf[MAX_MAIL_BUF];
 
 	sprintf(buf, "Subject: CRAAFDD Event on %s\n"
 		     "From: %s\n"
+		     "To: %s\n"
 		     "Mime-Version: 1.0\n"
 		     "Content-Type: multipart/related; boundary=\"boundary-example\"; type=\"text/html\"\n"
 		     "\n"
@@ -217,7 +218,7 @@ static void sendmail(const char * my_hostname, const char * from_mail, const cha
 		     "Content-Disposition: inline;\n"
 		     "\n" 
 		     #include "craafdd.png.base64.h"
-		    "--boundary-example\n\n", my_hostname, from_mail, message);
+		    "--boundary-example\n\n", my_hostname, from_mail, to_mail, message);
 
 	if((pp = popen(mail_cmd, "w")) == NULL)
         {
