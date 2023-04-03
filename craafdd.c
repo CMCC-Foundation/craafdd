@@ -680,7 +680,7 @@ int main(int argc, char *argv[])
 						fflush(logging_fp);
 
 						if(is_mail_active)
-							sendmail(my_hostname, from_mail, mail_cmd_to, logging_buf);
+							sendmail(my_hostname, from_mail, to_mail, mail_cmd_to, logging_buf);
 
 						// fclose(logging_fp);
 						continue;
@@ -711,7 +711,7 @@ int main(int argc, char *argv[])
 						fflush(logging_fp);	
 
 						if(is_mail_active)
-                                                        sendmail(my_hostname, from_mail, mail_cmd_to, logging_buf);
+                                                        sendmail(my_hostname, from_mail, to_mail, mail_cmd_to, logging_buf);
 
 						// fclose(logging_fp);
 						continue;
@@ -755,7 +755,7 @@ int main(int argc, char *argv[])
                                         	fflush(logging_fp);
 
 						if(is_mail_active)
-                                                        sendmail(my_hostname, from_mail, mail_cmd_to, logging_buf);
+                                                        sendmail(my_hostname, from_mail, to_mail, mail_cmd_to, logging_buf);
 
 						// fclose(logging_fp);
                                       		continue;
@@ -1115,7 +1115,7 @@ int main(int argc, char *argv[])
  									errno = 0;
 
 									if(is_mail_active)
-										sendmail(my_hostname, from_mail, mail_cmd_to, logging_buf);
+										sendmail(my_hostname, from_mail, to_mail, mail_cmd_to, logging_buf);
 
 									#ifdef DEBUG_MODE
 									fprintf(logging_fp, "logging_buf is %s\n", logging_buf);
@@ -1178,7 +1178,7 @@ int main(int argc, char *argv[])
                                                 remove(my_path_buf);
 
 					if(is_mail_active)
-                                        	sendmail(my_hostname, from_mail, mail_cmd_to, logging_buf);
+                                        	sendmail(my_hostname, from_mail, to_mail, mail_cmd_to, logging_buf);
 
 					if(!lfr_error_statement)
 					{
